@@ -20,15 +20,15 @@ __(basically anything in and anything out)__
 * Easily interpretable
 * Handles missing values and outliers
 * [non-parametric](http://en.wikipedia.org/wiki/Non-parametric_statistics#Non-parametric_models)/[non-linear](http://www.yaksis.com/static/img/02/cows_and_wolves.png)/model complex phenomenom
-* Computationally ___cheap___ to ___predict___
-* Can hadle irrelevant features
+* Computationally _cheap_ to ___predict___
+* Can handle irrelevant features
+* Mixed data (nominal and continuous)
 
 ## Why Not Decision Trees
 
-* Computationally ___expensive___ to ___train___
-*
-*
-*
+* Computationally _expensive_ to ___train___
+* Greedy algorithm (local optima)
+* Very easy to overfit
 
 ## Goals
 
@@ -43,7 +43,7 @@ __(basically anything in and anything out)__
 ## Reading
 
 * [Applied Data Science](http://columbia-applied-data-science.github.io/appdatasci.pdf): Chapter 9.4 (p. 100 - p. 104)
-* [Berkeley CS 188 (slides)](http://inst.eecs.berkeley.edu/~cs188/fa11/slides/FA11%20cs188%20lecture%2021%20--%20naive%20bayes%20%286PP%29.pdf)
+
 * [scikit-learn docs: Decision Trees](http://scikit-learn.org/stable/modules/tree.html)
 
 ## Assignment
@@ -77,7 +77,7 @@ To serialize a decision tree, we simply need to output the decision rules.  This
 
 #### Data Structure
 
-```json
+```javascript
 {
 	column:,
 	value:,
@@ -137,7 +137,7 @@ pickle(tree, open('tree.pkl', 'wb'))
 
 ## References
 
-* Machine Learning in Action: Chapter 3 and 9
+* Machine Learning in Action: Chapter 3 ([ID3](http://en.wikipedia.org/wiki/ID3_algorithm)) and 9 ([CART](http://en.wikipedia.org/wiki/Predictive_analytics#Classification_and_regression_trees))
 
 * [Practical Machine Learning -- Classification](slides.pdf)
 * [Tom Mitchell's Book](http://www.cs.cmu.edu/afs/cs.cmu.edu/project/theo-20/www/mlbook/ch3.pdf)

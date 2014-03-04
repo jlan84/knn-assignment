@@ -103,11 +103,6 @@ For each feature in the dataset, a DT calculates a sum of the entropy of the spl
 
 9.  Decision trees are often used for their interpretablity and actionability.  It's output may not be the most accurate predictor, but compared to other black box algorithms, decision trees can work wonders in terms of guiding business decisions.
 
-### Fraud
-
-1. We will now switch gears and try to predict fraudulent events.
-
-
 ### Random Forests (and Ensembles)
 
 Random forests are one of the most widely used classifiers for their robustness, generalizability, and accuracy.  There are a number of components intrinsic to the Random Forest classifier that make it both robust to overfitting while at the same time very accurate.  This is often true of many ensembles of models.  While we will not directly use ensemble methods (meta-algorithms -- AdaBoost and Bagging), Random Forests are a Bagging (Bootstrap Aggregating) algorithm.

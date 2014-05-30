@@ -52,8 +52,6 @@ Decision trees are a recursive divide and conquer algorithm.  You should have a 
 
 For this assignment you are the new data science hire on the [Eventbrite](http://www.eventbrite.com/jobs/?jobvite=true&jvi=olDVXfwA%2CJob#current_positions) data team:
 
-![win](http://media.giphy.com/media/Xd5ayHbo4Umc0/giphy.gif)
-
 (congrats)
 
 Now you have been given your first assignment... prevent fraudulent events.  Now to detect future fraudulent events, you have decided to look for any patterns in past events.  Using a decision tree you want to not only classify fraudulent events, but understand why they are fraudulent to take the appropriate action.  But let's not get ahead of ourselves... we first have to understand how to build a tree (and walk before we run).

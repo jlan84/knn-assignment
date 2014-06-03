@@ -88,7 +88,7 @@ To get to value of a leaf node, average all of the values.
     * `error_tol`: If error reduction is less than this threshold, we will stop
     * `size_tol`: If the number of data points is less than this threshold, we will stop
 
-### k Nearest Neighbors
+## k Nearest Neighbors
 
 This algorithm is very simple to implement. Note that it takes nothing to train the model. When given a new data point, you need to calculate the distance of that data point to every existing data point and find the *k* closest ones.
 

@@ -58,19 +58,14 @@ Feel free to start by restricting yourself to categorical features to make thing
     *P(c)* = (count of occurrences of class *c*) / *m*
 
 2. To write the `build_tree` method which recursively builds the tree, you will probably want the following methods:
-
     * `information_gain`: Given a binary split of the dataset, returns the information gain based on this formula:
 
         ![information gain](images/gain.png)
 
         *D* is the set of sets which make up *S* based on our split. In our case, since we're only doing binary splits, the information gain is as follows.
-
         ![binary information gain](images/binary_gain.png)
-
     * `choose_split`: Determine the best feature and value to split the dataset on.
-
     * `make_split`: Given feature and value, return the two subsets that are created from splitting on that feature and value (note that this works differently depending if the feature is continuous or categorical).
-
 3. Implement a `classify` method for the `DecisionTree` class which takes a new data point and predicts its class based on the decision tree. It may be helpful to have a recursive `classify` method in the `TreeNode` class as well.
 
 ### Decision Trees for Regression

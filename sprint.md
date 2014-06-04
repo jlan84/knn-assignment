@@ -114,6 +114,8 @@ Here's the pseudocode:
 
     ![cosine distance](images/cosine.png)
 
+4. Compare the results you get from your decision tree and from your k nearest neighbors algorithm.
+
 
 ### Extra Credit
 

@@ -12,15 +12,15 @@ Look at the [golf data](data/playgolf.csv). You will also see a dataset with jus
 
 Here's the pseudocode for the algorithm you will be implementing.
 
-    function createBranch:
+    function buildTree:
         If every item in the dataset is in the same class: 
             return the class label
-        Else
+        Else:
             find the best feature and value to split the data 
             split the dataset
             create a node
             for each split
-                call createBranch and add the result to the node
+                call buildTree and add the result to the node
             return node
 
 ### Implementation

@@ -31,7 +31,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 * The `TreeNode` class is implemented. These are the instance variables:
 
     * `column` (int): index of feature to split on
-    * `children` (dict): dictionary representing child nodes.  Should have the value of the feature as a key and the child node as the value.  
+    * `children` (dict): dictionary representing child nodes. Should have the value of the feature as a key (e.g. sunny, not sunny, >80, etc.) and the child node as the value.  
     * `leaf` (boolean): true or false depending on if the node is a leaf node.    
     * `classes` (dictionary): if a leaf, a count of all the list of all the classes of the data points that terminate at this leaf.  Can be used to assess how "accurate" an individual leaf is.
 
@@ -77,12 +77,7 @@ You can use decision trees for predicting continuous values as well. Instead of 
 
 To get to value of a leaf node, average all of the values.
 
-1. Modify your decision tree so that it can predict continuous values. For checking out if your code is implemented correctly, you can use the same dataset and predict one of the continuous variables.
-
-2. Implement *prepruning*: Since we're rarely going to get to a situation where all the values are equal, we will set two thresholds for termination:
-
-    * `error_tol`: If error reduction is less than this threshold, we will stop
-    * `size_tol`: If the number of data points is less than this threshold, we will stop
+1. Make your decision tree able to predict continuous values. You can modify your decision tree class so that it can do either continuous or categorical depending on what parameters you pass it, or just copy and create a new class. For checking out if your code is implemented correctly, you can use the same dataset and predict one of the continuous variables.
 
 ## k Nearest Neighbors
 
@@ -113,9 +108,27 @@ Here's the pseudocode:
 4. Compare the results you get from your decision tree and from your k nearest neighbors algorithm.
 
 
+### A Real Dataset
+
+1. Try running your decision tree code and your k Nearest Neighbors code on yesterday's churn dataset.
+
+2. Use sklearn's [Decision Tree](http://scikit-learn.org/stable/modules/tree.html#classification) and [k Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) classifiers on the same dataset. How well do they do compared to logistic regression?
+
+
 ### Extra Credit
 
-1. Implement *postpruning* for your decision tree. You build the tree the same as before, but after you've built the tree, merge some nodes together if doing so reduces the error. Here's the psuedocode:
+You can do these in any order. Prepruning and decision boundaries are probably the most important.
+
+*Pruning* is designed to simplify the tree so it doesn't go so deep. It is a way of stopping earlier or merging leaves that helps deal with overfitting. The first two extra credit problems are implementing prepruning and postpruning. A well designed decision tree would have these implemented.
+
+1. *Prepruning* is making the decision tree algorithm stop early. Here are a few ways that we preprune:
+    * leaf size: Stop when the number of data points for a leaf gets below a threshold
+    * depth: Stop when the depth of the tree (distance from root to leaf) reaches a threshold
+    * mostly the same: Stop when some percent of the data points are the same (rather than all the same)
+    * error threshold: Stop when the error reduction (information gain) isn't improved significantly.
+    
+    Implement some of the prepruning thresholds and play around with using them.
+2. Implement *postpruning* for your decision tree. You build the tree the same as before, but after you've built the tree, merge some nodes together if doing so reduces the error. Here's the psuedocode:
 
         function Prune:
             if either left or right is not a leaf:
@@ -128,4 +141,6 @@ Here's the pseudocode:
 
     You can find more detail in section 9.4.2 in Machine Learning in Action.
 
-2. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.
+3. Follow the [example](http://scikit-learn.org/stable/auto_examples/tree/plot_iris.html#example-tree-plot-iris-py) in sklearn to plot the decision boundaries created by your decision tree for the play golf dataset, the iris dataset (the one used in the example), or any made up dataset. In order to plot it, you should have exactly two continuous features.
+
+4. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.

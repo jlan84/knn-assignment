@@ -20,7 +20,7 @@ Here's the pseudocode for the algorithm you will be implementing.
             split the dataset
             create a node
             for each split
-                call buildTree and add the result to the node
+                call buildTree and add the result to the node as a child
             return node
 
 ### Implementation

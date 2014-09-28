@@ -8,30 +8,41 @@ class DecisionTree(object):
     '''
     A decision tree class.
     '''
-    def __init__(self, data, features, target_index):
+    def __init__(self):
         '''
-        INPUT: 2 DIMENSIONAL NUMPY ARRAY, LIST, INTEGER
-        OUTPUT: NONE
+        Initialize an empty DecisionTree.
+        '''
+
+        self.root = None
+        self.feature_names = None
+
+    def fit(self, X, y, feature_names=None):
+        '''
+        INPUT: DECISIONTREE, 2 DIMENSIONAL NUMPY ARRAY, NUMPY ARRAY, NUMPY ARRAY
+        OUTPUT: None
 
         Build the decision tree.
-        data is a 2 dimensional array with each column being a feature and each
+        X is a 2 dimensional array with each column being a feature and each
         row a data point.
-        features is a list containing the names of each of the features.
-        target_index is the index of the feature we are predicting.
+        y is a 1 dimensional array with each value being the corresponding 
+        feature_names is an optional list containing the names of each of the
+        features.
         '''
-        self.target_index = target_index   # index of the column to predict
-        self.features = features           # list of feature names (only needed
-                                           # for visualizing and understanding
-                                           # the tree, not for prediction)
-        self.root = self.build_tree(data)
 
-    def build_tree(self, data):
+        if not feature_names or len(feature_names) != X.shape[0]:
+            self.feature_names = np.arange(X.shape[0])
+        else:
+            self.feature_names = feature_names
+        self.root = self._build_tree(X, y)
+
+    def _build_tree(self, X, y):
         '''
         INPUT: DECISIONTREE, 2 DIMENSIONAL NUMPY ARRAY
         OUTPUT: TREENODE
 
         Recursively build the decision tree. Return the root node.
         '''
+        
         pass
 
     def __str__(self):

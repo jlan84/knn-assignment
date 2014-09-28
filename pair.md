@@ -79,38 +79,10 @@ To get to value of a leaf node, average all of the values.
 
 1. Make your decision tree able to predict continuous values. You can modify your decision tree class so that it can do either continuous or categorical depending on what parameters you pass it, or just copy and create a new class. For checking out if your code is implemented correctly, you can use the same dataset and predict one of the continuous variables.
 
-## k Nearest Neighbors
-
-This algorithm is very simple to implement. Note that it takes nothing to train the model. When given a new data point, you need to calculate the distance of that data point to every existing data point and find the *k* closest ones.
-
-Here's the pseudocode:
-
-    kNN:
-        for every point in the dataset:
-            calculate the distance between the point and x
-            sort the distances in increasing order
-            take the k items with the smallest distances to x
-            return the majority class among these items
-
-1. Implement the function `euclidean_distance` which computes the euclidean distance between two numpy arrays. Euclidean distance only works for continuous features.
-
-2. Implement the class `KNearestNeighbors` in the file `KNearestNeighbors.py`. You should be able to run your code like this:
-
-        knn = KNearestNeighbors(X, y, 3, euclidean_distance)
-        print knn.classify(['sunny', 80, 90, true])
-
-    Here `X` is the feature matrix, `y` is the labels (list of "Play" and "Don't Play"). 3 is the *k* and `euclidean_distance` is the distance function.
-
-3. Implement `cosine_distance` which computes the cosine distance function. This gives the angle between the two vectors. Here is the formula:
-
-    ![cosine distance](images/cosine.png)
-
-4. Compare the results you get from your decision tree and from your k nearest neighbors algorithm.
-
 
 ### A Real Dataset
 
-1. Try running your decision tree code and your k Nearest Neighbors code on yesterday's churn dataset.
+1. Try running your decision tree code on yesterday's churn dataset.
 
 2. Use sklearn's [Decision Tree](http://scikit-learn.org/stable/modules/tree.html#classification) and [k Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) classifiers on the same dataset. How well do they do compared to logistic regression?
 

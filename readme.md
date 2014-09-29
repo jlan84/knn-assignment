@@ -11,7 +11,9 @@ Notes on [decision trees and kNN](lecture.md)
 
 ### Assignment
 
-You will be implementing decision trees and kNN with [this assignment](sprint.md).
+* Individual: [kNN and Recursion Practice](individual.md)
+* Pair: [Decision Trees](pair.md)
+
 
 ### Goals
 

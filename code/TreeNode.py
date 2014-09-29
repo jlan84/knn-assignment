@@ -20,6 +20,9 @@ class TreeNode(object):
                                   #           that terminate at this leaf
 
 
+    # This and the __str__ function enable you to print out the node. It is
+    # not necessary for the solution, but may help you visualize the trees that
+    # you build.
     def as_string(self, level=0, prefix=""):
         '''
         INPUT: TREENODE, INT, STRING

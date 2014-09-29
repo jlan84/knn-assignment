@@ -31,24 +31,30 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 * The `TreeNode` class is implemented. These are the instance variables:
 
     * `column` (int): index of feature to split on
-    * `children` (dict): dictionary representing child nodes. Should have the value of the feature as a key (e.g. sunny, not sunny, >80, etc.) and the child node as the value.  
+    * `split_value` (object): value of the feature to split on
+    * `categorical` (bool): whether or not node is split on a categorial feature (vs continuous)
+    * `name` (string): name of the feature (or name of the class in the case of a list)
+    * `left` (TreeNode): left child
+    * `right` (Tree Node): right child
     * `leaf` (boolean): true or false depending on if the node is a leaf node.    
-    * `classes` (dictionary): if a leaf, a count of all the list of all the classes of the data points that terminate at this leaf.  Can be used to assess how "accurate" an individual leaf is.
+    * `classes` (Counter): if a leaf, a count of all the list of all the classes of the data points that terminate at this leaf.  Can be used to assess how "accurate" an individual leaf is.
 
-    The `as_string` function is designed to help you be able to print out decision tree (mostly for debugging).
+    The `as_string` and `__str__` functions are designed to help you be able to print out decision tree (mostly for debugging).
 
 * There is minimal starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows, assuming `data` has been initalized to 2 dimensional numpy array containing the play golf dataset. In this example, `data` has 5 columns and 19 rows. The last row (index 4) is the result we are trying to classify.
 
-        tree = DecisionTree(X, ['Outlook', 'Temperature', 'Humidity', 'Windy', 'Result'], 4)
-        print tree.classify(['sunny', 80, 90, true])
+    ```python
+    tree = DecisionTree()
+    tree.fit(X, y, df.columns[:-1])
+    print tree
+    y_predict = tree.predict(X)
+    ```
 
-    You can see that the `__str__` method is implemented for you. This enables you to print your tree for debugging purposes:
-
-        print tree
+    You can see that the `__str__` method is implemented for you. This enables you to print your tree for debugging purposes.
 
 ### Steps to Implementing
 
-We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: sunny or not sunny. For continuous features, splits will be like: >80 or <=80.
+We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: `sunny` or `not sunny`. For continuous features, splits will be like: `>80` or `<=80`.
 
 Feel free to start by restricting yourself to categorical features to make things a little simpler.
 
@@ -58,7 +64,9 @@ Feel free to start by restricting yourself to categorical features to make thing
 
     *P(c)* = (count of occurrences of class *c*) / *m*
 
-2. To write the `build_tree` method which recursively builds the tree, you will probably want the following methods:
+    Note that to calculate entropy, you only need to labels (`y` values) and none of the feature values.
+
+2. To write the `_build_tree` method which recursively builds the tree, you will probably want the following methods:
     * `information_gain`: Given a binary split of the dataset, returns the information gain based on this formula:
 
         ![information gain](images/gain.png)
@@ -67,7 +75,18 @@ Feel free to start by restricting yourself to categorical features to make thing
         ![binary information gain](images/binary_gain.png)
     * `choose_split`: Determine the best feature and value to split the dataset on.
     * `make_split`: Given feature and value, return the two subsets that are created from splitting on that feature and value (note that this works differently depending if the feature is continuous or categorical).
-3. Implement a `classify` method for the `DecisionTree` class which takes a new data point and predicts its class based on the decision tree. It may be helpful to have a recursive `classify` method in the `TreeNode` class as well.
+
+    We've intentionally left design decisions to you. However, if you're having trouble figuring out how exactly to structure things, ask your neighbor or call someone over. And of course you are welcome to modify any of the instance variables already created, these are there to give you an idea.
+
+3. Implement a `predict` method for the `DecisionTree` class which takes a new feature matrix `X` and predicts its class based on the decision tree. It may be helpful to have a recursive `predict` method in the `TreeNode` class as well. And try doing just a single data point first.
+
+
+### Plot Decision Boundaries
+
+`sklearn` has an example of how to plot decision boundaries for non-parametric learners [here](http://scikit-learn.org/stable/auto_examples/tree/plot_iris.html#example-tree-plot-iris-py).
+
+1. Plot the decision boundaries created by your decision tree for the play golf dataset, the iris dataset (the one used in the example), or any made up dataset. In order to plot it, you should have exactly two continuous features.
+
 
 ### Decision Trees for Regression
 
@@ -100,6 +119,7 @@ You can do these in any order. Prepruning and decision boundaries are probably t
     * error threshold: Stop when the error reduction (information gain) isn't improved significantly.
     
     Implement some of the prepruning thresholds and play around with using them.
+
 2. Implement *postpruning* for your decision tree. You build the tree the same as before, but after you've built the tree, merge some nodes together if doing so reduces the error. Here's the psuedocode:
 
         function Prune:
@@ -113,6 +133,6 @@ You can do these in any order. Prepruning and decision boundaries are probably t
 
     You can find more detail in section 9.4.2 in Machine Learning in Action.
 
-3. Follow the [example](http://scikit-learn.org/stable/auto_examples/tree/plot_iris.html#example-tree-plot-iris-py) in sklearn to plot the decision boundaries created by your decision tree for the play golf dataset, the iris dataset (the one used in the example), or any made up dataset. In order to plot it, you should have exactly two continuous features.
+3. Use the Gini  instead of entropy to choose the best split.
 
 4. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.

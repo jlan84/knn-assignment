@@ -11,7 +11,7 @@ Notes on [decision trees and kNN](lecture.md)
 
 ### Assignment
 
-You will be implementing decision trees and kNN with [this assignment](sprint.md).
+You will be implementing decision trees and kNN with [this assignment](pair.md).
 
 ### Goals
 

@@ -3,13 +3,13 @@ This afternoon we're going to be implementing an algorithm that relies on recurs
 
 We'll be using this implementation of a `TreeNode` for all the questions concerning trees (in node.py):
 
-    ```python
-    class TreeNode:
-        def __init__(self, value, left=None, right=None):
-            self.value = value
-            self.left = left
-            self.right = right
-    ```
+```python
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+```
 
 There are a couple recursion examples
 
@@ -39,7 +39,7 @@ There are a couple recursion examples
 4. Write a function `build_coinflip_tree` which takes an integer *k* and builds the tree containing all the possible results of flipping a coin *k* times. The value at each node should be a string of the flips to get there. For example, if *k* is 3, your tree should look like this:
 
     ```
-                       ""
+                       ''
                      /    \
                    /        \
                  /            \
@@ -56,10 +56,21 @@ There are a couple recursion examples
     ```python
     root = build_coinflip_tree(3)
     assert root.value == ""
-    assert root.left == "H"
-    assert root.left.left == "HH"
+    assert root.left.value == "H"
+    assert root.left.left.value == "HH"
     ```
     or build the tree manually and use the `equals` function written in `recusion_examples.py`.
+    
+    **Hint:** The `value` parameter you'll see in the docstring is so that you can pass to the tree what path you took to get there. It might make the problem a little easier to build a tree like this instead:
+    
+    ```
+         ''
+        /  \
+       /    \
+      H      T
+     / \    / \
+    H   T  H   T
+    ```
 
 
 ## k Nearest Neighbors

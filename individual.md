@@ -56,8 +56,8 @@ There are a couple recursion examples
     ```python
     root = build_coinflip_tree(3)
     assert root.value == ""
-    assert root.left == "H"
-    assert root.left.left == "HH"
+    assert root.left.value == "H"
+    assert root.left.left.value == "HH"
     ```
     or build the tree manually and use the `equals` function written in `recusion_examples.py`.
 

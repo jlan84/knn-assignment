@@ -3,13 +3,13 @@ This afternoon we're going to be implementing an algorithm that relies on recurs
 
 We'll be using this implementation of a `TreeNode` for all the questions concerning trees (in node.py):
 
-    ```python
-    class TreeNode:
-        def __init__(self, value, left=None, right=None):
-            self.value = value
-            self.left = left
-            self.right = right
-    ```
+```python
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+```
 
 There are a couple recursion examples
 

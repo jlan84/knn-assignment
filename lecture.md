@@ -158,7 +158,7 @@ def find_minimum(root):
         return min((root.value, find_minimum(root.left), find_minimum(root.right)))
 ```
 
-There's a couple more examples in [recursion_practice.py](code/recursion_practice.py).
+There's a couple more examples in [recursion_examples.py](code/recursion_examples.py).
 
 
 # Decision trees

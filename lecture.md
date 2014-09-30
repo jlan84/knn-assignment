@@ -225,7 +225,7 @@ The *Gini impurity* is another way of measuring which split is the best. It's a 
 
 * Take a random element from the set
 * Label it randomly according to the distribution of labels in the set
-* What is the probability that it is labeled correctly?
+* What is the probability that it is labeled incorrectly?
 
 This is the gini impurity:
 

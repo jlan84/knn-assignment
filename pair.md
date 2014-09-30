@@ -85,7 +85,7 @@ Feel free to start by restricting yourself to categorical features to make thing
 
 `sklearn` has an example of how to plot decision boundaries for non-parametric learners [here](http://scikit-learn.org/stable/auto_examples/tree/plot_iris.html#example-tree-plot-iris-py).
 
-1. Plot the decision boundaries created by your decision tree for the play golf dataset, the iris dataset (the one used in the example), or any made up dataset. In order to plot it, you should have exactly two continuous features.
+1. Plot the decision boundaries created by your decision tree for the play golf dataset, the iris dataset (the one used in the example), yesterday's dataset or any made up dataset. In order to plot it, you should have exactly two continuous features.
 
 
 ### Decision Trees for Regression
@@ -101,7 +101,7 @@ To get to value of a leaf node, average all of the values.
 
 ### A Real Dataset
 
-1. Try running your decision tree code on yesterday's churn dataset.
+1. Try running your decision tree code on yesterday's dataset.
 
 2. Use sklearn's [Decision Tree](http://scikit-learn.org/stable/modules/tree.html#classification) and [k Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) classifiers on the same dataset. How well do they do compared to logistic regression?
 

@@ -25,6 +25,7 @@ Notes on [decision trees and kNN](lecture.md)
 * Conditional Probability Table
 * Gini coefficient vs. information gain 
 
+
 ### Reading
 
 * [Parametric vs Non-Parametric models](http://www.statsblogs.com/2014/01/15/machine-learning-lesson-of-the-day-parametric-vs-non-parametric-models/)

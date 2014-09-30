@@ -62,7 +62,7 @@ Feel free to start by restricting yourself to categorical features to make thing
 
     ![shannon entropy](images/entropy.png)
 
-    *P(c)* = (count of occurrences of class *c*) / *m*
+    *P(c)* = (count of occurrences of class *c*) / size of *y*
 
     Note that to calculate entropy, you only need to labels (`y` values) and none of the feature values.
 

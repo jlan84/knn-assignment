@@ -29,8 +29,8 @@ class DecisionTree(object):
         features.
         '''
 
-        if not feature_names or len(feature_names) != X.shape[0]:
-            self.feature_names = np.arange(X.shape[0])
+        if feature_names is None or len(feature_names) != X.shape[1]:
+            self.feature_names = np.arange(X.shape[1])
         else:
             self.feature_names = feature_names
         self.root = self._build_tree(X, y)

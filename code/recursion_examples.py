@@ -36,6 +36,18 @@ def equals(root1, root2):
         return False
     return equals(root1.left, root2.left) and equals(root1.right, root2.right)
 
+def build_tree(value, height):
+    '''Build a tree where each value is value of the given height.'''
+    if height == 0:
+        return None
+    return TreeNode(value, build_tree(value, height - 1), build_tree(value, height - 1))
+
+def get_height(node):
+    '''Return the height of the tree.'''
+    if not node:
+        return 0
+    return 1 + max(get_height(node.left), get_height(node.right))
+
 
 if __name__ == '__main__':
     # build a tree
@@ -64,3 +76,4 @@ if __name__ == '__main__':
     print find_maximum(t1)    # 4
     print find_maximum(t2)    # 5
     print equals(t1, t2)      # False
+    print get_height(t1)      # 3

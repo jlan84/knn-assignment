@@ -133,6 +133,6 @@ You can do these in any order. Prepruning and decision boundaries are probably t
 
     You can find more detail in section 9.4.2 in Machine Learning in Action.
 
-3. Use the Gini  instead of entropy to choose the best split.
+3. Use the Gini impurity instead of entropy to choose the best split.
 
 4. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.

@@ -10,11 +10,22 @@ def fibonacci(n):
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
 
+def recursive_sum(lst):
+    if not lst:
+        return 0
+    return lst[0] + sum(lst[1:])
+
 def find_maximum(root):
     if not root:
         return -1
     else:
         return max((root.value, find_maximum(root.left), find_maximum(root.right)))
+
+def tree_to_list(root):
+    if not root:
+        return []
+    else:
+        return [root.value] + tree_to_list(root.left) + tree_to_list(root.right)
 
 def equals(root1, root2):
     if root1 is None and root2 is None:

@@ -24,7 +24,7 @@ class DecisionTree(object):
         Build the decision tree.
         X is a 2 dimensional array with each column being a feature and each
         row a data point.
-        y is a 1 dimensional array with each value being the corresponding 
+        y is a 1 dimensional array with each value being the corresponding label.
         feature_names is an optional list containing the names of each of the
         features.
         '''

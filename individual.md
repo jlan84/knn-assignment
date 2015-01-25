@@ -1,5 +1,5 @@
 ## Recursion Practice
-This afternoon we're going to be implementing an algorithm that relies on recursion. We're going to practice with the following problems. Write the functions in `recursion_practice.py`.
+We're going to be implementing an algorithm that relies on recursion. We're going to practice with some problems. Write the functions in `recursion_practice.py`.
 
 We'll be using this implementation of a `TreeNode` for all the questions concerning trees (in node.py):
 
@@ -10,8 +10,6 @@ class TreeNode:
         self.left = left
         self.right = right
 ```
-
-There are a couple recursion examples
 
 1. Write a recursive function which takes an integer and computes and sum of the digits:
 
@@ -36,7 +34,7 @@ There are a couple recursion examples
 
     As a sidenote these are called *traversals* and each possible order has a name. **Preorder** is `value, left, right`. **Postorder** is `left, right, value`. **Inorder** is `left, value, right`.
 
-4. Write a function `build_coinflip_tree` which takes an integer *k* and builds the tree containing all the possible results of flipping a coin *k* times. The value at each node should be a string of the flips to get there. For example, if *k* is 3, your tree should look like this:
+4. Write a function `build_coinflip_tree` which takes an integer *k* and builds the tree containing all the possible results of flipping a coin *k* times. The value at each node should be a string of the flips to get there. For example, if *k* is 3, your tree should look like something similar to this:
 
     ```
                        ''
@@ -52,7 +50,7 @@ There are a couple recursion examples
     HHH  HHT   HTH  HTT  THH  THT   TTH  TTT
     ```
 
-    To verify your result, you'll have to just do things like this:
+    To verify your result, you'll have to just do things like:
     ```python
     root = build_coinflip_tree(3)
     assert root.value == ""
@@ -79,7 +77,7 @@ This algorithm is very simple to implement. Note that it takes nothing to train 
 
 ### Data
 
-You can also use sklearn's `make_classification` for creating a fake dataset like we did yesterday.
+You can also use sklearn's `make_classification` for creating a fake dataset like we did in a previous day.
 
 ```python
 X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
@@ -88,7 +86,8 @@ X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
 
 ## kNN Implementation
 
-Here's the pseudocode for k Nearest Neighbors:
+Include all code for this section in the file `KNearestNeighbors.py`
+Here's the pseudocode for `k` Nearest Neighbors:
 
     kNN:
         for every point in the dataset:
@@ -99,7 +98,7 @@ Here's the pseudocode for k Nearest Neighbors:
 
 1. Implement the function `euclidean_distance` which computes the euclidean distance between two numpy arrays. Euclidean distance only works for continuous features.
 
-2. Implement the class `KNearestNeighbors` in the file `KNearestNeighbors.py`. We are going to write our code similar to how sklearn does. So you should be able to run your code like this:
+2. Implement the class `KNearestNeighbors`. We are going to write our code similar to how sklearn does. So you should be able to run your code like this:
 
     ```python
     knn = KNearestNeighbors(k=3, distance=euclidean_distance)
@@ -117,7 +116,7 @@ Here's the pseudocode for k Nearest Neighbors:
 
 4. Plot the decision boundary. Look at this [sklearn example](http://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html#example-neighbors-plot-classification-py). Note that you'll need exactly 2 continuous features in order to do this.
 
-5. Try your algorithm on yesterday's churn dataset. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the accuracy, precision, recall and f1 score of your model. Use KFold Cross Validation and determine the best choice of k (will probably depend on which metric you use!).
+5. Test your algorithm on the churn dataset you previously used with [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the accuracy, precision, recall and `f1` score of your model. Use KFold Cross Validation and determine the best choice of `k` (will probably depend on which metric you use!).
 
 
 ## Extra Credit (Harder Recursion Problems)
@@ -127,4 +126,4 @@ Here's the pseudocode for k Nearest Neighbors:
 
 2. Write a function `print_tree` which takes a tree and prints the output in a human readable format.
 
-3. Write a function `make_word_breaks` which takes a string `phrase` and a set `word_list`. The idea is to determine if you can make word breaks in the string. For example: `thedogruns` would become `the dog runs`. Of course many strings of letters this is not possible. Don't worry about being intelligent, just try every possibility.
+3. Write a function `make_word_breaks` which takes a string `phrase` and a set `word_list`. The idea is to determine if you can make word breaks in the string. For example: `thedogruns` would become `the dog runs`. Of course for many strings of letters, this is not possible. Don't worry about being intelligent, just try every possibility.

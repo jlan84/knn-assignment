@@ -125,7 +125,7 @@ Note that even our definition is recursive!
 Here's the code for a `TreeNode`:
 
 ```python
-class TreeNode:
+class TreeNode(object):
     def __init__(self, value, left=None, right=None):
         self.value = value
         self.left = left

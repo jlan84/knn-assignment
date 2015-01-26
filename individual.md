@@ -1,7 +1,7 @@
 ## Recursion Practice
 We're going to be implementing an algorithm that relies on recursion. We're going to practice with some problems. Write the functions in `recursion_practice.py`.
 
-We'll be using this implementation of a `TreeNode` for all the questions concerning trees (in node.py):
+We'll be using this implementation of a `TreeNode` (in `node.py`) for all the questions concerning trees (2-4):
 
 ```python
 class TreeNode:

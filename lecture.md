@@ -56,7 +56,7 @@ In order to implement and understand Decision Trees (our next classification alg
 
 Recursion is a very powerful computer science idea. Recursion is when a function calls itself. The idea is to reduce the problem into a simpler version of the same problem until you reduce it to what we call the *base case*.
 
-Several math functions are naturally recursive. For example, *factorial*. Here's an example of factorial: `6! = 5*4*3*2*1 = 120`. You can also write it like this: `6! = 6 * 5!`. In this way, we've reduced it to a simpler version of the same problem.
+Several math functions are naturally recursive. For example, *factorial*. Here's an example of factorial: `6! = 6*5*4*3*2*1 = 120`. You can also write it like this: `6! = 6 * 5!`. In this way, we've reduced it to a simpler version of the same problem.
 
 Here's the code:
 

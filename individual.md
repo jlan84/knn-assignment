@@ -4,7 +4,7 @@ We're going to be implementing an algorithm that relies on recursion. We're goin
 We'll be using this implementation of a `TreeNode` (in `node.py`) for all the questions concerning trees (2-4):
 
 ```python
-class TreeNode:
+class TreeNode(object):
     def __init__(self, value, left=None, right=None):
         self.value = value
         self.left = left

@@ -1,4 +1,4 @@
-You have a SQL databases of advertisers on your site and advertising campaigns.
+You have a SQL database of advertisers on your site and advertising campaigns.
 
 ```
 advertisers

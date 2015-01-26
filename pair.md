@@ -101,7 +101,7 @@ To get to value of a leaf node, average all of the values.
 
 ### A Real Dataset
 
-1. Try running your decision tree code on yesterday's dataset.
+1. Try running your decision tree code on a previous exercise's dataset.
 
 2. Use sklearn's [Decision Tree](http://scikit-learn.org/stable/modules/tree.html#classification) and [k Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) classifiers on the same dataset. How well do they do compared to logistic regression?
 

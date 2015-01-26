@@ -77,7 +77,7 @@ This algorithm is very simple to implement. Note that it takes nothing to train 
 
 ### Data
 
-You can also use sklearn's `make_classification` for creating a fake dataset like we did in a previous day.
+You can also use sklearn's `make_classification` for creating a fake dataset like we did in a previous exercise.
 
 ```python
 X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
@@ -96,7 +96,7 @@ Here's the pseudocode for `k` Nearest Neighbors:
             take the k items with the smallest distances to x
             return the majority class among these items
 
-1. Implement the function `euclidean_distance` which computes the euclidean distance between two numpy arrays. Euclidean distance only works for continuous features.
+1. Implement the function `euclidean_distance` which computes the Euclidean distance between two numpy arrays. Euclidean distance only works for continuous features.
 
 2. Implement the class `KNearestNeighbors`. We are going to write our code similar to how sklearn does. So you should be able to run your code like this:
 
@@ -108,7 +108,7 @@ Here's the pseudocode for `k` Nearest Neighbors:
 
     Here `X` is the feature matrix as a 2d numpy array, `y` is the labels as a numpy array. 3 is the *k* and `euclidean_distance` is the distance function. `predict` will return a numpy array of the predicted labels.
 
-    You will need to implement a `KNearestNeighbors` class with three methods: `fit`, `predict` and `score` (calculates accuracy)
+    You will need to implement a `KNearestNeighbors` class with three methods: `fit`, `predict` and `score` (calculates accuracy).
 
 3. Implement `cosine_distance` which computes the cosine distance function. This gives the angle between the two vectors. Here is the formula:
 
@@ -116,14 +116,14 @@ Here's the pseudocode for `k` Nearest Neighbors:
 
 4. Plot the decision boundary. Look at this [sklearn example](http://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html#example-neighbors-plot-classification-py). Note that you'll need exactly 2 continuous features in order to do this.
 
-5. Test your algorithm on the churn dataset you previously used with [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the accuracy, precision, recall and `f1` score of your model. Use KFold Cross Validation and determine the best choice of `k` (will probably depend on which metric you use!).
+5. Test your algorithm on a dataset used for a previous exercise. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the accuracy, precision and recall of your model. Use KFold Cross Validation and determine the best choice of `k` (will probably depend on which metric you use!).f
 
 
 ## Extra Credit (Harder Recursion Problems)
 1. Go back to the traversal problem from above. If you are given the *output* of that function, can you rebuild the tree? Let's say you have the preorder and inorder. Write a function which builds the tree. You can assume values are unique.
 
-    **Hint:** The first item in the preorder is the root. In the inorder, the everything to the left of the root is in the left subtree and everything to the right is in the right subtree.
+    **Hint:** The first item in the preorder traversal is the root. In the inorder traversal, everything to the left of the root is in the left subtree and everything to the right is in the right subtree.
 
 2. Write a function `print_tree` which takes a tree and prints the output in a human readable format.
 
-3. Write a function `make_word_breaks` which takes a string `phrase` and a set `word_list`. The idea is to determine if you can make word breaks in the string. For example: `thedogruns` would become `the dog runs`. Of course for many strings of letters, this is not possible. Don't worry about being intelligent, just try every possibility.
+3. Write a function `make_word_breaks` which takes a string `phrase` and a set `word_list`. The idea is to determine if you can make word breaks in the string. For example: `"thedogruns"` would become `"the dog runs"`. Of course for many strings of letters, this is not possible. Don't worry about being efficient, just try every possibility.

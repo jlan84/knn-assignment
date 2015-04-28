@@ -43,3 +43,8 @@ Here's the pseudocode for `k` Nearest Neighbors:
 4. Plot the decision boundary. Look at this [sklearn example](http://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html#example-neighbors-plot-classification-py). Note that you'll need exactly 2 continuous features in order to do this.
 
 5. Test your algorithm on a dataset used for a previous exercise. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the accuracy, precision and recall of your model. Use KFold Cross Validation and determine the best choice of `k` (will probably depend on which metric you use!).
+
+
+## Extra Credit
+
+Practice with [recursion](https://github.com/zipfian/welcome/blob/master/recursion/exercise.md).

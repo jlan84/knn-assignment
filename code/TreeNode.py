@@ -1,4 +1,5 @@
 from collections import Counter
+import numpy as np
 
 class TreeNode(object):
     '''
@@ -6,7 +7,7 @@ class TreeNode(object):
     '''
     def __init__(self):
         self.column = None  # (int)    index of feature to split on
-        self.split_value = None  # value of the feature to split on
+        self.value = None  # value of the feature to split on
         self.categorical = True  # (bool) whether or not node is split on
                                  # categorial feature
         self.name = None    # (string) name of feature (or name of class in the
@@ -19,14 +20,37 @@ class TreeNode(object):
                                   #           count of the count of data points
                                   #           that terminate at this leaf
 
+    def predict_one(self, x):
+        '''
+        INPUT:
+            - x: 1d numpy array (single data point)
+        OUTPUT:
+            - y: predicted label
 
-    # This and the __str__ function enable you to print out the node. It is
-    # not necessary for the solution, but may help you visualize the trees that
-    # you build.
+        Return the predicted label for a single data point.
+        '''
+        if self.leaf:
+            return self.name
+        col_value = x[self.column]
+
+        if self.categorical:
+            if True:  ### REPLACE WITH YOUR CODE
+                return self.left.predict_one(x)
+            else:
+                return self.right.predict_one(x)
+        else:
+            if True:  ### REPLACE WITH YOUR CODE
+                return self.left.predict_one(x)
+            else:
+                return self.right.predict_one(x)
+
+    # This is for visualizing your tree. You don't need to look into this code.
     def as_string(self, level=0, prefix=""):
         '''
-        INPUT: TREENODE, INT, STRING
-        OUTPUT: STRING
+        INPUT:
+            - level: int (amount to indent)
+        OUTPUT:
+            - prefix: str (to start the line with)
 
         Return a string representation of the tree rooted at this node.
         '''
@@ -47,6 +71,5 @@ class TreeNode(object):
             result += self.right.as_string(level + 1, right_key + ":")
         return result
 
-
-    def __str__(self):
-        return self.as_string()
+    def __repr__(self):
+        return self.as_string().strip()

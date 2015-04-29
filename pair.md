@@ -57,7 +57,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 * There are minimal tests in `test_decision_tree.py`. One test for each method you need to implement. You can run the tests with this command:
 
     ```
-    nosetests
+    nosetests code/test_decision_tree.py
     ```
 
 ### Steps to Implementing
@@ -82,7 +82,9 @@ We will be implementing the **CART** algorithm. This means that every split will
 
 5. Implement the `_choose_split_index` method. This should take the data and try every possible feature and value to split on. It should find the one with the best information gain.
 
-6. The `predict` method in the Decision Tree class is implemented by calling the `predict_one` method in the `TreeNode` class. You need to implement the `predict_one` method. This is a recursive function which will take a single datapoint and return which class it belongs to. Use the `Counter`'s `most_common` method.
+6. The `predict` method in the Decision Tree class is implemented by calling the `predict_one` method in the `TreeNode` class. You need to finish the implementation of the `predict_one` method. This is a recursive function which will take a single datapoint and return which class it belongs to. Use the `Counter`'s `most_common` method.
+
+    Note that the condition is different depending if the variable is categorical or not.
 
 
 ### Extra Credit 1: Pruning

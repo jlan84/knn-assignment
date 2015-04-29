@@ -11,7 +11,7 @@ Notes on [decision trees and kNN](lecture.md)
 
 ### Assignment
 
-* Individual: [kNN and Recursion Practice](individual.md)
+* Individual: [kNN](individual.md)
 * Pair: [Decision Trees](pair.md)
 
 

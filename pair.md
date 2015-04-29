@@ -41,7 +41,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 
     The `as_string` and `__str__` functions are designed to help you be able to print out decision tree (mostly for debugging).
 
-* There is minimal starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows, assuming `data` has been initalized to 2 dimensional numpy array containing the play golf dataset. In this example, `data` has 5 columns and 19 rows. The last row (index 4) is the result we are trying to classify.
+* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows, assuming `data` has been initalized to 2 dimensional numpy array containing the play golf dataset. In this example, `data` has 5 columns and 19 rows. The last row (index 4) is the result we are trying to classify.
 
     ```python
     tree = DecisionTree()
@@ -52,63 +52,40 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 
     You can see that the `__str__` method is implemented for you. This enables you to print your tree for debugging purposes.
 
+* The `__init__`, `fit`, `_build_tree` and `__str__` methods are already implemented for you. You will need to implement the other ones.
+
+* There are minimal tests in `test_decision_tree.py`. One test for each method you need to implement. You can run the tests with this command:
+
+    ```
+    nosetests
+    ```
+
 ### Steps to Implementing
 
 We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: `sunny` or `not sunny`. For continuous features, splits will be like: `>80` or `<=80`.
 
-Feel free to start by restricting yourself to categorical features to make things a little simpler.
-
-1. Implement an `entropy` function, which is given by the following equation. Entropy measures the amount of "disorder" in a set. Here there are *m* elements in the set and *ci* is the class of the *i*-th element.
+1. Implement the `_entropy` method, which is given by the following equation. Entropy measures the amount of "disorder" in a set. Here there are *m* elements in the set and *ci* is the class of the *i*-th element.
 
     ![shannon entropy](images/entropy.png)
 
     *P(c)* = (count of occurrences of class *c*) / size of *y*
 
-    Note that to calculate entropy, you only need to labels (`y` values) and none of the feature values.
+    Note that to calculate entropy, you only need the labels (`y` values) and none of the feature values.
 
-2. To write the `_build_tree` method which recursively builds the tree, you will probably want the following methods:
-    * `information_gain`: Given a binary split of the dataset, returns the information gain based on this formula:
+2. Implement the `_gini` method. Your information gain method will be able to use either gini or entropy.
 
-        ![information gain](images/gain.png)
+    ![gini impurity](images/gini.png)
 
-        *D* is the set of sets which make up *S* based on our split. In our case, since we're only doing binary splits, the information gain is as follows.
-        ![binary information gain](images/binary_gain.png)
-    * `choose_split`: Determine the best feature and value to split the dataset on.
-    * `make_split`: Given feature and value, return the two subsets that are created from splitting on that feature and value (note that this works differently depending if the feature is continuous or categorical).
+3. Implement the `_make_split` method. This should take the index of the feature and the value of the feature and make the split of the data into two subsets. Note that for categorical features this should split on weather it's equal to the value of not. For continuous, it should split on `<` or `>=`.
 
-    We've intentionally left design decisions to you. However, if you're having trouble figuring out how exactly to structure things, ask your neighbor or call someone over. And of course you are welcome to modify any of the instance variables already created, these are there to give you an idea.
+4. Implement the `_information_gain` method. This should take a split (the result of the `_make_split` method) and return the value of the information gain.
 
-3. Implement a `predict` method for the `DecisionTree` class which takes a new feature matrix `X` and predicts its class based on the decision tree. It may be helpful to have a recursive `predict` method in the `TreeNode` class as well. And try doing just a single data point first.
+5. Implement the `_choose_split_index` method. This should take the data and try every possible feature and value to split on. It should find the one with the best information gain.
+
+6. The `predict` method in the Decision Tree class is implemented by calling the `predict_one` method in the `TreeNode` class. You need to implement the `predict_one` method. This is a recursive function which will take a single datapoint and return which class it belongs to. Use the `Counter`'s `most_common` method.
 
 
-### Plot Decision Boundaries
-
-`sklearn` has an example of how to plot decision boundaries for non-parametric learners [here](http://scikit-learn.org/stable/auto_examples/tree/plot_iris.html#example-tree-plot-iris-py).
-
-1. Plot the decision boundaries created by your decision tree for the play golf dataset, the iris dataset (the one used in the example), yesterday's dataset or any made up dataset. In order to plot it, you should have exactly two continuous features.
-
-
-### Decision Trees for Regression
-
-**Note:** Before starting this, make sure you commit your code with a `git commit`! Don't lose your past results with your new changes!
-
-You can use decision trees for predicting continuous values as well. Instead of using entropy to calculate the disorder in the set, we use the variance.
-
-To get to value of a leaf node, average all of the values.
-
-1. Make your decision tree able to predict continuous values. You can modify your decision tree class so that it can do either continuous or categorical depending on what parameters you pass it, or just copy and create a new class. For checking out if your code is implemented correctly, you can use the same dataset and predict one of the continuous variables.
-
-
-### A Real Dataset
-
-1. Try running your decision tree code on a previous exercise's dataset.
-
-2. Use sklearn's [Decision Tree](http://scikit-learn.org/stable/modules/tree.html#classification) and [k Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) classifiers on the same dataset. How well do they do compared to logistic regression?
-
-
-### Extra Credit
-
-You can do these in any order. Prepruning and decision boundaries are probably the most important.
+### Extra Credit 1: Pruning
 
 *Pruning* is designed to simplify the tree so it doesn't go so deep. It is a way of stopping earlier or merging leaves that helps deal with overfitting. The first two extra credit problems are implementing prepruning and postpruning. A well designed decision tree would have these implemented.
 
@@ -133,6 +110,24 @@ You can do these in any order. Prepruning and decision boundaries are probably t
 
     You can find more detail in section 9.4.2 in Machine Learning in Action.
 
-3. Use the Gini impurity instead of entropy to choose the best split.
 
-4. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.
+### Extra Credit 2: Decision Trees for Regression
+
+**Note:** Before starting this, make sure you commit your code with a `git commit`! Don't lose your past results with your new changes!
+
+You can use decision trees for predicting continuous values as well. Instead of using entropy to calculate the disorder in the set, we use the variance.
+
+To get to value of a leaf node, average all of the values.
+
+1. Make your decision tree able to predict continuous values. You can modify your decision tree class so that it can do either continuous or categorical depending on what parameters you pass it, or just copy and create a new class. For checking out if your code is implemented correctly, you can use the same dataset and predict one of the continuous variables.
+
+2. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.
+
+
+### Extra Credit 3: A Real Dataset
+
+1. Try running your decision tree code on a previous exercise's dataset.
+
+2. Use sklearn's [Decision Tree](http://scikit-learn.org/stable/modules/tree.html#classification) and [k Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) classifiers on the same dataset. How well do they do compared to logistic regression?
+
+3. Implement model trees, which are predictors which start by using a decision tree, but use linear regression to predict the value on each leaf node. Details can be found in 9.5 of Machine Learning in Action.

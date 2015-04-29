@@ -8,17 +8,24 @@ class DecisionTree(object):
     '''
     A decision tree class.
     '''
+
     def __init__(self):
         '''
         Initialize an empty DecisionTree.
         '''
 
-        self.root = None
-        self.feature_names = None
+        self.root = None  # root Node
+        self.feature_names = None  # string names of features (for interpreting 
+                                   # the tree)
+        self.categorical = None  # Boolean array of whether variable is
+                                 # categorical (or continuous)
 
     def fit(self, X, y, feature_names=None):
         '''
-        INPUT: DECISIONTREE, 2 DIMENSIONAL NUMPY ARRAY, NUMPY ARRAY, NUMPY ARRAY
+        INPUT:
+            - X: 2D numpy array
+            - y: 1D numpy array
+            - feature_names: numpy array of strings
         OUTPUT: None
 
         Build the decision tree.
@@ -33,17 +40,148 @@ class DecisionTree(object):
             self.feature_names = np.arange(X.shape[1])
         else:
             self.feature_names = feature_names
+
+        # Create True/False array of whether the variable is categorical
+        is_categorical = lambda x: isinstance(x, str) or \
+                                   isinstance(x, bool) or \
+                                   isinstance(x, unicode)
+        self.categorical = np.vectorize(is_categorical)(X[0])
+
         self.root = self._build_tree(X, y)
 
     def _build_tree(self, X, y):
         '''
-        INPUT: DECISIONTREE, 2 DIMENSIONAL NUMPY ARRAY
-        OUTPUT: TREENODE
+        INPUT:
+            - X: 2D numpy array
+            - y: 1d numpy array
+        OUTPUT:
+            - TreeNode
 
         Recursively build the decision tree. Return the root node.
         '''
-        
+
+        node = TreeNode()
+        index, value, splits = self._choose_split_index(X, y)
+
+        if index is None or len(np.unique(y)) == 1:
+            node.leaf = True
+            node.classes = Counter(y)
+            node.name = node.classes.most_common(1)[0][0]
+        else:
+            (X1, y1), (X2, y2) = splits
+            node.column = index
+            node.name = self.feature_names[index]
+            node.value = value
+            node.categorical = self.categorical[index]
+            node.left = self._build_tree(X1, y1)
+            node.right = self._build_tree(X2, y2)
+        return node
+
+    def _entropy(self, y):
+        '''
+        INPUT:
+            - y: 1d numpy array
+        OUTPUT:
+            - float
+
+        Return the entropy of the array y.
+        '''
+
+        ### YOUR CODE HERE
         pass
 
+    def _gini(self, y):
+        '''
+        INPUT:
+            - y: 1d numpy array
+        OUTPUT:
+            - float
+
+        Return the gini impurity of the array y.
+        '''
+
+        ### YOUR CODE HERE
+        pass
+
+    def _make_split(self, X, y, split_index, split_value):
+        '''
+        INPUT:
+            - X: 2d numpy array
+            - y: 1d numpy array
+            - split_index: int (index of feature)
+            - split_value: int/float/bool/str (value of feature)
+        OUTPUT:
+            - (X1, y1): (2d numpy array, 1d numpy array)
+                        subset 1 of the dataset
+            - (X2, y2): (2d numpy array, 1d numpy array):
+                        subset 2 of the dataset
+
+        Return the two subsets of the dataset achieved by the given feature and
+        value to split on.
+
+        Call the method like this:
+        >>> (X1, y1), (X2, y2) = self._make_split(X, y,
+                                                  split_index, split_value)
+
+        X1, y1 is a subset of the data.
+        X2, y2 is the other subset of the data.
+        '''
+
+        ### YOUR CODE HERE
+        pass
+
+    def _information_gain(self, y, splits):
+        '''
+        INPUT:
+            - y: 1d numpy array
+            - splits: (2d array, 1d array), (2d array, 1d array)
+        OUTPUT:
+            - float
+
+        Return the information gain of making the given split.
+        '''
+
+        ### YOUR CODE HERE
+        pass
+
+    def _choose_split_index(self, X, y):
+        '''
+        INPUT:
+            - X: 2d numpy array
+            - y: 1d numpy array
+        OUTPUT:
+            - index: int (index of feature)
+            - value: int/float/bool/str (value of feature)
+            - splits: (2d array, 1d array), (2d array, 1d array)
+
+        Determine which feature and value to split on. Return the index and
+        value of the optimal split along with the split of the dataset.
+
+        Return None, None, None if there is no split which improves information
+        gain.
+
+        Call the method like this:
+        >>> index, value, splits = self._choose_split_index(X, y)
+        >>> (X1, y1), (X2, y2) = splits
+        '''
+
+        ### YOUR CODE HERE
+        pass
+
+    def predict(self, X):
+        '''
+        INPUT:
+            - X: 2d numpy array
+        OUTPUT:
+            - y: 1d numpy array
+
+        Return an array of predictions for the feature matrix X.
+        '''
+
+        results = np.vectorize(self.root.predict_one)(X)
+
     def __str__(self):
+        '''
+        Return string representation of the Decision Tree.
+        '''
         return self.root.as_string()

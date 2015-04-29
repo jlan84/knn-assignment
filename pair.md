@@ -62,7 +62,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 
 ### Steps to Implementing
 
-We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: `sunny` or `not sunny`. For continuous features, splits will be like: `>80` or `<=80`.
+We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: `sunny` or `not sunny`. For continuous features, splits will be like: `<80` or `>=80`.
 
 1. Implement the `_entropy` method, which is given by the following equation. Entropy measures the amount of "disorder" in a set. Here there are *m* elements in the set and *ci* is the class of the *i*-th element.
 

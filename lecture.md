@@ -1,5 +1,5 @@
-1. [k Nearest Neighbors](k-nearest-neighbors-knn)
-2. [Decision Trees](decision-trees)
+1. [k Nearest Neighbors](#k-nearest-neighbors-knn)
+2. [Decision Trees](#decision-trees)
 
 
 # k Nearest Neighbors (kNN)

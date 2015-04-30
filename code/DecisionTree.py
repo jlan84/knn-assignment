@@ -186,7 +186,7 @@ class DecisionTree(object):
         Return an array of predictions for the feature matrix X.
         '''
 
-        results = np.vectorize(self.root.predict_one)(X)
+        return np.apply_along_axis(self.root.predict_one, axis=1, arr=X)
 
     def __str__(self):
         '''

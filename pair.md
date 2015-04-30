@@ -60,6 +60,8 @@ You've been given starter code in the [code](code) folder. Some of the instance 
     nosetests code/test_decision_tree.py
     ```
 
+* The file `run_decision_tree.py` should run your Decision Tree code, print the resulting decision tree and show the predicted results.
+
 ### Steps to Implementing
 
 We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: `sunny` or `not sunny`. For continuous features, splits will be like: `<80` or `>=80`.

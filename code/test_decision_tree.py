@@ -7,7 +7,7 @@ from TreeNode import TreeNode as TN
 def test_entropy():
     array = [1, 1, 2, 1, 2]
     result = DT()._entropy(np.array(array))
-    actual = 0.97095
+    actual = 0.67301
     message = 'Entropy value for %r: Got %.2f. Should be %.2f' \
               % (array, result, actual)
     n.assert_almost_equal(result, actual, 4, message)

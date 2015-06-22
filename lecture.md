@@ -184,7 +184,7 @@ Short for Iterative Dichotomiser 3, the original Decision Tree algorithm develop
 * uses entropy and information gain to pick the best split
 
 #### CART
-Short for Classification and Regression Tree was invented about the same time as ID3 by Breiman, Friedman,, Olshen and Stone. The CART algorithm has the following properties:
+Short for Classification and Regression Tree was invented about the same time as ID3 by Breiman, Friedman, Olshen and Stone. The CART algorithm has the following properties:
 
 * handles both categorial and continuous data
 * always uses binary splits

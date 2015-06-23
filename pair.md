@@ -1,4 +1,4 @@
-## Decision Trees
+ig## Decision Trees
 
 Decision trees are a recursive divide and conquer algorithm. They are a non-linear, non-parametric discriminative supervised classification algorithm.  There are a few names of decision tree algorithms you may have heard of (ID3, C4.5, CART, etc.) and each is a different specification of a decision tree model.  You can read about them [here](http://stackoverflow.com/questions/9979461/different-decision-tree-algorithms-with-comparison-of-complexity-or-performance) and [here](http://scikit-learn.org/stable/modules/tree.html#tree-algorithms-id3-c4-5-c5-0-and-cart).
 
@@ -66,7 +66,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 
 We will be implementing the **CART** algorithm. This means that every split will be binary. For categorical features, splits will be like: `sunny` or `not sunny`. For continuous features, splits will be like: `<80` or `>=80`.
 
-1. Implement the `_entropy` method, which is given by the following equation. Entropy measures the amount of "disorder" in a set. Here there are *m* elements in the set and *ci* is the class of the *i*-th element.
+1. Implement the `_entropy` method, which is given by the following equation. Entropy measures the amount of "disorder" in a set. Here there are *m* classes in the set and *ci* is the *i*-th class of our target y.
 
     ![shannon entropy](images/entropy.png)
 

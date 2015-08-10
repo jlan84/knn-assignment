@@ -12,7 +12,8 @@ X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
 
 ## kNN Implementation
 
-**Include all your code for this section in** `KNearestNeighbors.py`.  
+**Include all your code for this section in** `KNearestNeighbors.py`.
+
 Here's the pseudocode for `k` Nearest Neighbors:
 
     kNN:

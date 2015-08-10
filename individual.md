@@ -1,4 +1,4 @@
-## k Nearest Neighbors
+## k-Nearest Neighbors
 This algorithm is very simple to implement. Note that it takes nothing to train the model, you just need to save the data. When given a new data point, you need to calculate the distance of that data point to every existing data point and find the *k* closest ones.
 
 ### Data
@@ -12,7 +12,7 @@ X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
 
 ## kNN Implementation
 
-Include all code for this section in the file `KNearestNeighbors.py`
+**Include all your code for this section in** `KNearestNeighbors.py`.  
 Here's the pseudocode for `k` Nearest Neighbors:
 
     kNN:

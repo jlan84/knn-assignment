@@ -53,7 +53,7 @@ def test_make_split():
 def test_information_gain():
     X, y, X1, y1, X2, y2 = fake_data()
     result = DT()._information_gain(y, y1, y2)
-    actual = 0.01384
+    actual = 0.019973
     message = 'Information gain for:\n%r, %r, %r:\nGot %.3f. Should be %.3f' \
               % (y, y1, y2, result, actual)
     n.assert_almost_equal(result, actual, 4, message)

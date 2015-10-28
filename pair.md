@@ -41,7 +41,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 
     The `as_string` and `__str__` functions are designed to help you be able to print out decision tree (mostly for debugging).
 
-* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows, assuming `data` has been initalized to 2 dimensional numpy array containing the play golf dataset. In this example, `data` has 5 columns and 19 rows. The last column (index 4) is the result we are trying to classify.
+* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows, assuming `data` has been initialized to 2 dimensional numpy array containing the play golf dataset. In this example, `data` has 5 columns and 19 rows. The last column (index 4) is the result we are trying to classify.
 
     ```python
     tree = DecisionTree()

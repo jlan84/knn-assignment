@@ -7,7 +7,7 @@ We will be using two machine learning models: **Decision Trees** and **k Nearest
 
 ### Lecture Notes
 
-Notes on [decision trees and kNN](lecture.md)
+Notes on [decision trees and kNN](https://github.com/zipfian/DSI_Lectures/blob/master/non-parametric-learners/danae_havice_hull/lecture.pdf)
 
 ### Assignment
 

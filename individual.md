@@ -23,9 +23,9 @@ Here's the pseudocode for `k` Nearest Neighbors:
             take the k items with the smallest distances to x
             return the majority class among these items
 
-1. Implement the function `euclidean_distance` which computes the Euclidean distance between two numpy arrays. Euclidean distance only works for continuous features.
+1. Implement the function `euclidean_distance` which computes the Euclidean distance between two numpy arrays.
 
-2. Implement the class `KNearestNeighbors`. We are going to write our code similar to how sklearn does. So you should be able to run your code like this:
+2. Implement the class `KNearestNeighbors`. We are going to write our code similar to how sklearn does. You should be able to run your code like this:
 
     ```python
     knn = KNearestNeighbors(k=3, distance=euclidean_distance)
@@ -37,7 +37,7 @@ Here's the pseudocode for `k` Nearest Neighbors:
 
     You will need to implement a `KNearestNeighbors` class with three methods: `fit`, `predict` and `score` (calculates accuracy).
 
-3. Implement `cosine_distance` which computes the cosine distance function. This gives the angle between the two vectors. Here is the formula:
+3. Implement the function `cosine_distance` which computes a cosine-similarity-based distance between two numpy arrays. Specifically, use this formula:
 
     ![cosine distance](images/cosine.png)
 
@@ -48,4 +48,4 @@ Here's the pseudocode for `k` Nearest Neighbors:
 
 ## Extra Credit
 
-Practice with [recursion](https://github.com/zipfian/welcome/blob/master/recursion/exercise.md).
+Practice with [recursion](https://github.com/zipfian/welcome/tree/master/readings/recursion).

@@ -17,7 +17,7 @@ Here's the pseudocode for the algorithm you will be implementing.
         or there is no feature left to split the data:
             return a leaf node with the class label
         Else:
-            find the best feature and value to split the data 
+            find the best feature and value to split the data
             split the dataset
             create a node
             for each split
@@ -36,12 +36,12 @@ You've been given starter code in the [code](code) folder. Some of the instance 
     * `name` (string): name of the feature (or name of the class in the case of a list)
     * `left` (TreeNode): left child
     * `right` (Tree Node): right child
-    * `leaf` (boolean): true or false depending on if the node is a leaf node.    
+    * `leaf` (boolean): true or false depending on if the node is a leaf node.
     * `classes` (Counter): if a leaf, a count of all the list of all the classes of the data points that terminate at this leaf.  Can be used to assess how "accurate" an individual leaf is.
 
-    The `as_string` and `__str__` functions are designed to help you be able to print out decision tree (mostly for debugging).
+    The `as_string` and `__str__` functions are designed to print out the decision tree (mostly for debugging).
 
-* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows, assuming `data` has been initialized to 2 dimensional numpy array containing the play golf dataset. In this example, `data` has 5 columns and 19 rows. The last column (index 4) is the result we are trying to classify.
+* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows (also see `code/run_decision_tree.py`).
 
     ```python
     tree = DecisionTree()
@@ -54,7 +54,7 @@ You've been given starter code in the [code](code) folder. Some of the instance 
 
 * The `__init__`, `fit`, `_build_tree` and `__str__` methods are already implemented for you. You will need to implement the other ones.
 
-* There are minimal tests in `test_decision_tree.py`. One test for each method you need to implement. You can run the tests with this command:
+* There are minimal tests in `code/test_decision_tree.py`. One test for each method you need to implement. You can run the tests with this command:
 
     ```
     nosetests code/test_decision_tree.py
@@ -96,7 +96,7 @@ We will be implementing the **CART** algorithm. This means that every split will
     * depth: Stop when the depth of the tree (distance from root to leaf) reaches a threshold
     * mostly the same: Stop when some percent of the data points are the same (rather than all the same)
     * error threshold: Stop when the error reduction (information gain) isn't improved significantly.
-    
+
     Implement some of the prepruning thresholds and play around with using them.
 
 2. Implement *postpruning* for your decision tree. You build the tree the same as before, but after you've built the tree, merge some nodes together if doing so reduces the error. Here's the psuedocode:

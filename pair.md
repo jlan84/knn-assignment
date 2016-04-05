@@ -99,7 +99,7 @@ We will be implementing the **CART** algorithm. This means that every split will
 
     Implement some of the prepruning thresholds and play around with using them.
 
-2. Implement *postpruning* for your decision tree. You build the tree the same as before, but after you've built the tree, merge some nodes together if doing so reduces the error. Here's the psuedocode:
+2. Implement *postpruning* for your decision tree. You build the tree the same as before, but after you've built the tree, merge some nodes together if doing so reduces the test-set error. Here's the psuedocode:
 
         function Prune:
             if either left or right is not a leaf:

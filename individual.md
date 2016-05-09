@@ -30,7 +30,7 @@ Here's the pseudocode for `k` Nearest Neighbors:
     ```python
     knn = KNearestNeighbors(k=3, distance=euclidean_distance)
     knn.fit(X, y)
-    y_predict = knn.predict(X)
+    y_predict = knn.predict(X_new)
     ```
 
     Here `X` is the feature matrix as a 2d numpy array, `y` is the labels as a numpy array. 3 is the *k* and `euclidean_distance` is the distance function. `predict` will return a numpy array of the predicted labels.

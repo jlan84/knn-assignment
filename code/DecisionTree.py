@@ -186,10 +186,7 @@ class DecisionTree(object):
         Return an array of predictions for the feature matrix X.
         '''
 
-        preds = []
-        for row in X:
-            preds.append(self.root.predict_one(row))
-        return np.array(preds)
+        return np.array([self.root.predict_one(row) for row in X])
 
     def __str__(self):
         '''

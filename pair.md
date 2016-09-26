@@ -26,7 +26,7 @@ Here's the pseudocode for the algorithm you will be implementing.
 
 ### Implementation
 
-You've been given starter code in the [code](code) folder. Some of the instance variables chosen are not the only possible way of implementing a decision tree, so feel free to modify anything if it fits your implementation better.
+You've been given starter code in the [src](src) folder. Some of the instance variables chosen are not the only possible way of implementing a decision tree, so feel free to modify anything if it fits your implementation better.
 
 * The `TreeNode` class is implemented. These are the instance variables:
 

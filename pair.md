@@ -41,7 +41,7 @@ You've been given starter code in the [src](src) folder. Some of the instance va
 
     The `as_string` and `__str__` functions are designed to print out the decision tree (mostly for debugging).
 
-* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows (also see `code/run_decision_tree.py`).
+* There is starter code for the `DecisionTree` class. You will need to fill in the class so that you can use your decision tree code as follows (also see `src/run_decision_tree.py`).
 
     ```python
     tree = DecisionTree()
@@ -54,10 +54,10 @@ You've been given starter code in the [src](src) folder. Some of the instance va
 
 * The `__init__`, `fit`, `_build_tree` and `__str__` methods are already implemented for you. You will need to implement the other ones.
 
-* There are minimal tests in `code/test_decision_tree.py`. One test for each method you need to implement. You can run the tests with this command:
+* There are minimal tests in `src/test_decision_tree.py`. One test for each method you need to implement. You can run the tests with this command:
 
     ```
-    nosetests code/test_decision_tree.py
+    nosetests src/test_decision_tree.py
     ```
 
 * The file `run_decision_tree.py` should run your Decision Tree code, print the resulting decision tree and show the predicted results.

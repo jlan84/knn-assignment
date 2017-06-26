@@ -48,4 +48,4 @@ Here's the pseudocode for `k` Nearest Neighbors:
 
 ## Extra Credit
 
-Practice with [recursion](https://github.com/zipfian/welcome/tree/master/readings/recursion).
+Practice with [recursion](https://github.com/gschool/dsi-welcome/tree/master/readings/recursion).

@@ -78,7 +78,7 @@ We will be implementing the **CART** algorithm. This means that every split will
 
     ![gini impurity](images/gini.png)
 
-3. Implement the `_make_split` method. This should take the index of the feature and the value of the feature and make the split of the data into two subsets. Note that for categorical features this should split on weather it's equal to the value of not. For continuous, it should split on `<` or `>=`.
+3. Implement the `_make_split` method. This should take the index of the feature and the value of the feature and make the split of the data into two subsets. Note that for categorical features this should split on whether it's equal to the value or not. For continuous, it should split on `<` or `>=`.
 
 4. Implement the `_information_gain` method. This should take a split (the result of the `_make_split` method) and return the value of the information gain.
 

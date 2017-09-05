@@ -13,6 +13,7 @@ X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
 ## kNN Implementation
 
 **Include all your code for this section in** `KNearestNeighbors.py`.
+
 Here's the pseudocode for using k Nearest Neighbors to predict the class of a point `x`:
 
 ```

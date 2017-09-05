@@ -3,7 +3,7 @@ This algorithm is very simple to implement. Note that it takes nothing to train 
 
 ### Data
 
-You can also use sklearn's `make_classification` for creating a fake dataset like we did in a previous exercise.
+You can also use sklearn's `make_classification` for creating a fake dataset.
 
 ```python
 X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,

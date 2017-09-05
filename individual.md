@@ -13,15 +13,15 @@ X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
 ## kNN Implementation
 
 **Include all your code for this section in** `KNearestNeighbors.py`.
+Here's the pseudocode for using k Nearest Neighbors to predict the class of a point `x`:
 
-Here's the pseudocode for `k` Nearest Neighbors:
-
+```
     kNN:
         for every point in the dataset:
             calculate the distance between the point and x
-            sort the distances in increasing order
-            take the k items with the smallest distances to x
-            return the majority class among these items
+        take the k items with the smallest distances to x (**hint: use numpy's argsort() function**)
+        return the majority class among these items
+```
 
 1. Implement the function `euclidean_distance` which computes the Euclidean distance between two numpy arrays.
 

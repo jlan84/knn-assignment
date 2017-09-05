@@ -1,8 +1,10 @@
-## Decision Trees and k Nearest Neighbors
+## k Nearest Neighbors and Decision Trees  
 
-Today we will be playing with non-parametric models. Non-parametric models have a flexible number of parameters (unlike logistic regression, which is parametric).
+Today we will be playing with non-parametric models. Parametric models (like linear & logistic regression) assume a distribution or generating function that is defined by a set of parameters (e.g., beta coefficients). Then those parameters are varied until the model best fits the data.
 
-We will be using two machine learning models: **Decision Trees** and **k Nearest Neighbors**.
+Non-parametric models make no such assumptions about what generated the data. Instead, they define some algorithm for finding patterns or associations between the features & target.
+
+We will be using two such machine learning models: **k Nearest Neighbors** and **Decision Trees**.
 
 
 ### Lecture Notes
@@ -23,7 +25,7 @@ Notes on [decision trees and kNN](https://github.com/gschool/DSI_Lectures/blob/m
 * Conditional Independence
 * Maximum Likelihood
 * Conditional Probability Table
-* Gini coefficient vs. information gain
+* Gini impurity, entropy, and information gain
 
 
 #### Decision Trees

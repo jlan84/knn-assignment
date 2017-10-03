@@ -49,7 +49,7 @@ class DecisionTree(object):
         # Create True/False array of whether the variable is categorical
         is_categorical = lambda x: isinstance(x, str) or \
                                    isinstance(x, bool) or \
-                                   isinstance(x, unicode)
+                                   isinstance(x, str)
         self.categorical = np.vectorize(is_categorical)(X[0])
 
         self.root = self._build_tree(X, y)

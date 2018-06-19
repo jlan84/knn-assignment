@@ -36,7 +36,7 @@ kNN:
 
     Here `X` is the feature matrix as a 2d numpy array, `y` is the labels as a numpy array. 3 is the *k* and `euclidean_distance` is the distance function. `predict` will return a numpy array of the predicted labels.
 
-    You will need to implement a `KNearestNeighbors` class with three methods: `fit`, `predict` and `score` (calculates accuracy).
+    You will need to implement a `KNearestNeighbors` class with three methods: `fit`, `predict` and `predict_proba` (predict the probability of each class).
 
 3. Implement the function `cosine_distance` which computes a cosine-similarity-based distance between two numpy arrays. Specifically, use this formula:
 

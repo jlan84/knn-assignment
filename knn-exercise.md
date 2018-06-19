@@ -40,7 +40,7 @@ kNN:
 
 3. Implement the function `cosine_distance` which computes a cosine-similarity-based distance between two numpy arrays. Specifically, use this formula:
 
-    ![cosine distance](images/cosine.png)
+    ![cosine distance](images/cosine_distance.png)
 
 4. Plot the decision boundary. Look at this [sklearn example](http://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html#example-neighbors-plot-classification-py). Note that you'll need exactly 2 continuous features in order to do this.
 

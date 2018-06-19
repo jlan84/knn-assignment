@@ -3,7 +3,7 @@
 
 ### Assignment
 
-* Individual: [kNN](individual.md)
+* Individual: [kNN](knn-exercise.md)
 
 #### k Nearest Neighbors (kNN)
 * Machine Learning in Action: Chapter 2

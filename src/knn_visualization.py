@@ -60,6 +60,6 @@ def plot_decision_boundary(clf, X, y, n_classes):
     plt.ylim(yy.min(), yy.max())
 
     plt.title("{0}-Class classification (k = {1}, metric = '{2}')"
-              .format(n_classes, clf.k, clf.distance))
+              .format(n_classes, clf.k, clf.distance.__name__))
     plt.show()
 

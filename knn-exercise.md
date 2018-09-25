@@ -21,7 +21,7 @@ kNN:
     for every point in the dataset:
         calculate the distance between the point and x
     take the k points with the smallest distances to x (**hint: use numpy's argsort() function**)
-    return the majority class among these items
+    predict the probability of each target class based on the frequency of classes observed among these items
 ```
 
 1. Implement the function `euclidean_distance` which computes the Euclidean distance between two numpy arrays.
@@ -31,7 +31,8 @@ kNN:
     ```python
     knn = KNearestNeighbors(k=3, distance=euclidean_distance)
     knn.fit(X, y)
-    y_predict = knn.predict(X_new)
+    y_pred_proba = knn.predict_proba(X)
+    y_pred = knn.predict(X)
     ```
 
     Here `X` is the feature matrix as a 2d numpy array, `y` is the labels as a numpy array. 3 is the *k* and `euclidean_distance` is the distance function. `predict` will return a numpy array of the predicted labels.

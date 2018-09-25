@@ -108,7 +108,8 @@ class KNNClassifier:
         -------
         result: numpy array, shape = [n_observations, n_classes]
             Predicted probabilities for each class, for each row.
-
+        """
+        pass
 
 if __name__ == '__main__':
     pass

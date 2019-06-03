@@ -3,7 +3,7 @@
 
 ### Assignment
 
-* Exercise: [kNN](knn-exercise.md)
+* Exercise: [kNN](assignment.md)
 
 #### k Nearest Neighbors (kNN)
 * Machine Learning in Action: Chapter 2

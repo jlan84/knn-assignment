@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import sys
 
 
-def plot_decision_boundary(clf, X, y, n_classes):
+def plot_decision_boundary(ax, clf, X, y, n_classes):
     """Plot the decision boundary of a kNN classifier.
 
     Plots decision boundary for up to 4 classes.
@@ -27,7 +27,7 @@ def plot_decision_boundary(clf, X, y, n_classes):
     clf: instance of classifier object
         A fitted classifier with a .predict() method.
     X: numpy array, shape = [n_observations, n_features]
-        Test data.
+        Training data to display.
     y: numpy array, shape = [n_observations,]
         Target labels.
     n_classes: int
@@ -48,18 +48,16 @@ def plot_decision_boundary(clf, X, y, n_classes):
     xx, yy = np.meshgrid(np.arange(x_min, x_max, mesh_step_size),
                          np.arange(y_min, y_max, mesh_step_size))
     dec_boundary = clf.predict(np.c_[xx.ravel(), yy.ravel()])
-
     # Put the result into a color plot
     dec_boundary = dec_boundary.reshape(xx.shape)
-    plt.figure()
-    plt.pcolormesh(xx, yy, dec_boundary, cmap=cmap_light)
+    ax.pcolormesh(xx, yy, dec_boundary, cmap=cmap_light)
 
     # Plot also the training points
-    plt.scatter(feature_1, feature_2, c=y, cmap=cmap_bold)
-    plt.xlim(xx.min(), xx.max())
-    plt.ylim(yy.min(), yy.max())
+    ax.scatter(feature_1, feature_2, c=y, cmap=cmap_bold)
+    ax.set_xlim(xx.min(), xx.max())
+    ax.set_ylim(yy.min(), yy.max())
 
-    plt.title("{0}-Class classification (k = {1}, metric = '{2}')"
+    ax.set_title("{0}-Class classification (k = {1}, metric = '{2}')"
               .format(n_classes, clf.k, clf.distance.__name__))
     plt.show()
 

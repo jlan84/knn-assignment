@@ -3,50 +3,50 @@ This algorithm is very simple to implement. Note that it takes nothing to train 
 
 ### Data
 
-You can also use sklearn's `make_classification` for creating a fake dataset.
-
+Use the code in `src/make_data.py` to generate some fake data. You
+can run it like this:
 ```python
-X, y = make_classification(n_features=4, n_redundant=0, n_informative=1,
-                           n_clusters_per_class=1, class_sep=5, random_state=5)
+from src.make_data import make_data
+X, y = make_data(n_features=2, n_pts=300, noise=0.1)
 ```
 
 ## kNN Implementation
 
 **Include all your code for this section in** `src/knn.py`.
 
-Here's the pseudocode for using k Nearest Neighbors to predict the class of a point `x`:
+Here's the pseudocode for using k Nearest Neighbors to predict the value of a point `x`:
 
 ```
 kNN:
     for every point in the dataset:
         calculate the distance between the point and x
-    take the k points with the smallest distances to x (**hint: use numpy's argsort() function**)
-    predict the probability of each target class based on the frequency of classes observed among these items
+        take the k points with the smallest distances to x (**hint: use numpy's argsort() function**)
+        predict the value as the mean of the observed target values among these items
 ```
 
-1. Implement the function `euclidean_distance` which computes the Euclidean distance between two numpy arrays.
+1. Implement the function `euclidean_distance` in the `src` directory which computes the Euclidean distance between two numpy arrays.
 
-2. Implement the class `KNearestNeighbors`. We are going to write our code similar to how sklearn does. You should be able to run your code like this:
+2. Implement the class `KNNRegressor` in `src/knn.py`, with methods `fit`, `predict` and `__init__`. We are going to write our code similar to how sklearn does. You should be able to run your code like this:
 
     ```python
-    knn = KNearestNeighbors(k=3, distance=euclidean_distance)
+    knn = KNNRegressor(k=3, distance=euclidean_distance)
     knn.fit(X, y)
-    y_pred_proba = knn.predict_proba(X)
     y_pred = knn.predict(X)
     ```
 
-    Here `X` is the feature matrix as a 2d numpy array, `y` is the labels as a numpy array. 3 is the *k* and `euclidean_distance` is the distance function. `predict` will return a numpy array of the predicted labels.
+    Here `X` is the feature matrix as a 2d numpy array, `y` is the values as a 1d numpy array. The 3 is the *k* and `euclidean_distance` is the distance function. `predict` will return a numpy array of the predicted labels.
 
-    You will need to implement a `KNearestNeighbors` class with three methods: `fit`, `predict` and `predict_proba` (predict the probability of each class).
-
-3. Implement the function `cosine_distance` which computes a cosine-similarity-based distance between two numpy arrays. Specifically, use this formula:
+3. Implement the function `cosine_distance` which computes a cosine-similarity-based metric between two numpy arrays. Specifically, use this formula:
 
     ![cosine distance](images/cosine_distance.png)
 
-4. Plot the decision boundary. Look at this [sklearn example](http://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html#example-neighbors-plot-classification-py). Note that you'll need exactly 2 continuous features in order to do this.
+4. Plot the values graphically. Use the code in `src/knn_visualization.py` to do this. Note that you'll need exactly 2 continuous features in order to do this. Once you have tested it, change the `plot_predictions` function, add an additional optional parameters to specify the name of the colormap, and test out a few different choices.
 
-5. Test your algorithm on a dataset used for a previous exercise. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the accuracy, precision and recall of your model. Use KFold Cross Validation and determine the best choice of `k` (will probably depend on which metric you use!).
+5. Test your algorithm on a dataset used for a previous exercise. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the mean-squared error of your model. Investigate how this depends on the value of `k`. Were the results what you expect? Talk about this with your neighbors.
 
+6. Add an additional option to your class to allow it to do a weighted mean, where the training points are weighted by the inverse of the distance to the point to be predicted, similar to the `weights='distance'` option in [`KNeighborsRegressor`](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.KNeighborsRegressor).
+
+7. Implement the `manhattan_distance` function. Compare the graphs produced with that, `euclidean_distance`, and `cosine_distance`. How are the graphs different?
 
 ## Extra Credit
 

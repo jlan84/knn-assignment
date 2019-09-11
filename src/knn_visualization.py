@@ -20,7 +20,7 @@ def plot_predictions(ax, reg, X, y):
     Parameters
     ----------
     reg: instance of regressor object
-        A fitted classifier with a .predict() method.
+        A fitted regressor with a .predict() method.
     X: numpy array, shape = [n_observations, n_features]
         Training data to display.
     y: numpy array, shape = [n_observations,]
@@ -32,8 +32,8 @@ def plot_predictions(ax, reg, X, y):
     # point in the mesh [x_min, m_max]x[y_min, y_max].
     feature_1 = X[:, 0]
     feature_2 = X[:, 1]
-    x_min, x_max = feature_1.min() - 1, feature_1.max() + 1
-    y_min, y_max = feature_2.min() - 1, feature_2.max() + 1
+    x_min, x_max = feature_1.min(), feature_1.max()
+    y_min, y_max = feature_2.min(), feature_2.max()
     v_min, v_max = y.min(), y.max()
 
     x_mesh_step_size = (x_max - x_min)/mesh_count
@@ -60,6 +60,5 @@ def plot_predictions(ax, reg, X, y):
     ax.set_ylim(yy.min(), yy.max())
 
     ax.set_title("Regression predictions (k = {0}, metric = '{1}')"
-              .format(reg.k, reg.distance.__name__))
+                 .format(reg.k, reg.distance.__name__))
     plt.show()
-

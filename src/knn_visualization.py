@@ -26,7 +26,7 @@ def plot_predictions(ax, reg, X, y):
     y: numpy array, shape = [n_observations,]
         Target labels.
     """
-    mesh_count = 500.
+    mesh_count = 100.
 
     # Plot the decision boundary. For that, we will assign a color to each
     # point in the mesh [x_min, m_max]x[y_min, y_max].
@@ -61,4 +61,3 @@ def plot_predictions(ax, reg, X, y):
 
     ax.set_title("Regression predictions (k = {0}, metric = '{1}')"
                  .format(reg.k, reg.distance.__name__))
-    plt.show()

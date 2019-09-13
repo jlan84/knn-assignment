@@ -33,7 +33,7 @@ def cosine_distance(a, b):
     pass
 
 
-def cosine_distance(a, b):
+def manhattan_distance(a, b):
     """Compute the manhattan (L1) distance between two numpy arrays.
 
     Parameters

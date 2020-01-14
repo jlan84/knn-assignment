@@ -50,4 +50,4 @@ kNN:
 
 ## Extra Credit
 
-Practice with [recursion](https://github.com/gschool/dsi-welcome/tree/master/readings/recursion).
+Practice with [recursion](https://github.com/GalvanizeDataScience/course-outline/tree/master/notes/reading_material/recursion).

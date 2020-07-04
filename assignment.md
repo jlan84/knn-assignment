@@ -1,7 +1,11 @@
 ## k-Nearest Neighbors
+
+## Introduction
 This algorithm is very simple to implement. Note that it takes nothing to train the model, you just need to save the data. When given a new data point, you need to calculate the distance of that data point to every existing data point and find the *k* closest ones.
 
-### Data
+## Basic
+
+### Part 1: Generate Data
 
 Use the code in `src/make_data.py` to generate some fake data. You
 can run it like this:
@@ -10,7 +14,7 @@ from src.make_data import make_data
 X, y = make_data(n_features=2, n_pts=300, noise=0.1)
 ```
 
-## kNN Implementation
+### Part 2: Implement kNN
 
 **Include all your code for this section in** `src/knn.py`.
 
@@ -40,14 +44,19 @@ kNN:
 
     ![cosine distance](images/cosine_distance.png)
 
-4. Plot the values graphically. Use the code in `src/knn_visualization.py` to do this. Note that you'll need exactly 2 continuous features for it to work. Once you have tested it, change the `plot_predictions` function, adding an additional optional parameters to specify the name of the colormap, and test out a few different choices.
+### Part 3: Explore results
+1. Plot the values graphically. Use the code in `src/knn_visualization.py` to do this. Note that you'll need exactly 2 continuous features for it to work. Once you have tested it, change the `plot_predictions` function, adding an additional optional parameters to specify the name of the colormap, and test out a few different choices.
 
-5. Test your algorithm on a dataset used for a previous exercise. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the mean-squared error of your model. Investigate how this depends on the value of `k`. Were the results what you expect? Talk about this with your neighbors.
+2. Test your algorithm on a dataset used for a previous exercise. Use [sklearn.metrics](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute the mean-squared error of your model. Investigate how this depends on the value of `k`. Were the results what you expect? Talk about this with your neighbors.
 
+## Advanced
+
+### Part 4: Additional options
 6. Add an additional option to your class to allow it to do a weighted mean, where the training points are weighted by the inverse of the distance to the point to be predicted, similar to the `weights='distance'` option in [`KNeighborsRegressor`](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html).
 
 7. Implement the `manhattan_distance` function. Compare the graphs produced with that, `euclidean_distance`, and `cosine_distance`. How are the graphs different?
 
 ## Extra Credit
+### Part 3: Additional Practice
 
 Practice with [recursion](https://github.com/GalvanizeDataScience/course-outline/tree/master/notes/reading_material/recursion).

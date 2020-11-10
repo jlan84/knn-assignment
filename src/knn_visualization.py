@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from jl_basic import *
+from make_data import make_data
+from sklearn.metrics import mean_squared_error
 
 
 def plot_predictions(ax, reg, X, y):
@@ -61,3 +64,16 @@ def plot_predictions(ax, reg, X, y):
 
     ax.set_title("Regression predictions (k = {0}, metric = '{1}')"
                  .format(reg.k, reg.distance.__name__))
+
+    
+
+if __name__ == "__main__":
+    X, y = make_data(n_features=2, n_pts=300, noise=0.1)
+    knn = KNNRegressor(k=1, distance=manhattan_distance)
+    knn.fit(X,y)
+    y_pred = knn.predict(X)
+    print(mean_squared_error(y,y_pred))
+    fig, ax = plt.subplots()
+    plot_predictions(ax, knn, X, y)
+    plt.show()
+    
